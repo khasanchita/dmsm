@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>Sports Equipment Store</title>
 
-    <meta name="description" content="Buy high-quality sports equipment and energy boosters at the best prices.">
-    <meta name="keywords" content="Sports Equipment, Fitness Gear, Energy Booster, Gym Accessories, Athletic Wear">
-
     <style>
         * {
             margin: 0;
@@ -21,37 +18,31 @@
 
         header {
             background-color: rgb(235, 235, 157);
-            color: rgb(0,0,0);
-            padding: 15px 30px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 40px;
         }
 
         nav a {
-            color: white;
+            color: black;
             text-decoration: none;
-            margin-left: 20px;
-        }
-
-        .search-box {
-            margin-left: 20px;
+            margin-left: 15px;
         }
 
         .search-box input {
             padding: 5px;
-            border-radius: 4px;
-            border: none;
         }
 
         .search-box button {
-            padding: 6px 10px;
-            border: none;
-            background-color: #ff9800;
+            padding: 5px;
+            background: orange;
             color: white;
-            border-radius: 4px;
-            cursor: pointer;
+            border: none;
         }
 
         .products {
@@ -59,57 +50,43 @@
         }
 
         .products h2 {
-            margin: 40px 0 20px 0;
-            font-size: 28px;
-            font-weight: bold;
-            color: #222;
+            margin-bottom: 20px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
 
         .product-card {
-            background-color: white;
+            background: white;
             padding: 15px;
-            border-radius: 8px;
             text-align: center;
+            border-radius: 8px;
         }
 
         .product-card img {
             width: 100%;
-            height: 160px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .product-card button {
-            background-color: #222;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
         }
 
         footer {
             text-align: center;
-            padding: 15px;
-            background-color: #222;
+            background: black;
             color: white;
-            margin-top: 30px;
+            padding: 10px;
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <h1>MySportsStore</h1>
 
-    <div style="display:flex; align-items:center;">
+    <div>
         <nav>
             <a href="#">Home</a>
             <a href="#">Shop</a>
@@ -118,7 +95,7 @@
         </nav>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search products...">
+            <input type="text" id="searchInput" placeholder="Search">
             <button onclick="searchProducts()">Search</button>
         </div>
     </div>
@@ -127,35 +104,25 @@
 <section class="products">
 
     <h2>🏋️ Sports Equipment</h2>
+
     <div class="product-grid">
 
         <div class="product-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6s3uV02fSFSHzPA6SQIdT452dU_156Nmw1w&s" alt="Football">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6s3uV02fSFSHzPA6SQIdT452dU_156Nmw1w&s">
             <h3>Football Gear</h3>
-            <p>₹1,200</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <!-- ✅ FIXED VOLLEYBALL IMAGE -->
-        <div class="product-card">
-            <img src =volleyball.jpeg>          
-            <h3>Volleyball</h3>
-            <p>₹900</p>
-            <button>Add to Cart</button>
+            <p>₹1200</p>
         </div>
 
         <div class="product-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSac3ZdJ8aUOaEnsec0w-qiYGass_Hb9sPGaQ&s" alt="Running Shoes">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSac3ZdJ8aUOaEnsec0w-qiYGass_Hb9sPGaQ&s">
             <h3>Running Shoes</h3>
-            <p>₹2,800</p>
-            <button>Add to Cart</button>
+            <p>₹2800</p>
         </div>
 
         <div class="product-card">
-            <img src="https://crowncricketer.com/wp-content/uploads/2024/08/mrf-champ-kit.jpg" alt="Cricket Equipment">
+            <img src="https://crowncricketer.com/wp-content/uploads/2024/08/mrf-champ-kit.jpg">
             <h3>Cricket Equipment</h3>
-            <p>₹2,200</p>
-            <button>Add to Cart</button>
+            <p>₹2200</p>
         </div>
 
     </div>
@@ -163,7 +130,7 @@
 </section>
 
 <footer>
-    © 2026 MySportsStore | Sports Equipment & Energy Boosters | All Rights Reserved
+    © 2026 MySportsStore
 </footer>
 
 <script>
@@ -173,11 +140,7 @@ function searchProducts() {
 
     for (let i = 0; i < products.length; i++) {
         let title = products[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
-        if (title.includes(input)) {
-            products[i].style.display = "";
-        } else {
-            products[i].style.display = "none";
-        }
+        products[i].style.display = title.includes(input) ? "block" : "none";
     }
 }
 </script>
