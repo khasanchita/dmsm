@@ -1,14 +1,154 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GitHub Practical</title>
+    <meta charset="UTF-8">
+    <title>Sports Equipment Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgb(89, 240, 240);
+        }
+
+        header {
+            background-color: rgb(235, 235, 157);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .search-box input {
+            padding: 5px;
+        }
+
+        .search-box button {
+            padding: 5px;
+            background: orange;
+            color: white;
+            border: none;
+        }
+
+        .products {
+            padding: 30px;
+        }
+
+        .products h2 {
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        footer {
+            text-align: center;
+            background: black;
+            color: white;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Welcome to GitHub</h1>
+<header>
+    <h1>MySportsStore</h1>
 
-<p>This is my WAD practical.</p>
+    <div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Cart</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+    </div>
+</header>
+
+<section class="products">
+
+    <h2>🏋️ Sports Equipment</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6s3uV02fSFSHzPA6SQIdT452dU_156Nmw1w&s">
+            <h3>Football Gear</h3>
+            <p>₹1200</p>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSac3ZdJ8aUOaEnsec0w-qiYGass_Hb9sPGaQ&s">
+            <h3>Running Shoes</h3>
+            <p>₹2800</p>
+        </div>
+
+        <div class="product-card">
+            <img src="https://crowncricketer.com/wp-content/uploads/2024/08/mrf-champ-kit.jpg">
+            <h3>Cricket Equipment</h3>
+            <p>₹2200</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 MySportsStore
+</footer>
+
+<script>
+function searchProducts() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let products = document.getElementsByClassName("product-card");
+
+    for (let i = 0; i < products.length; i++) {
+        let title = products[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        products[i].style.display = title.includes(input) ? "block" : "none";
+    }
+}
+</script>
 
 </body>
 </html>
+
+
+
